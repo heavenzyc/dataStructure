@@ -43,7 +43,7 @@ class LinkList:
 
     # 获取当前元素的值
     def get_data(self, index):
-        current = self.get_node(index)
+        current = self.__get_node(index)
         if current is None:
             return "node is not exist"
         return current.data
@@ -58,7 +58,7 @@ class LinkList:
             alist.append(current.data)
             current = current.next
         else:
-            list.append(current.data)
+            alist.append(current.data)
         print(alist)
 
     # 获取链表长度
@@ -84,7 +84,7 @@ class LinkList:
     # index 元素索引
     # data 插入的值
     def add_after(self, index, data):
-        current = self.get_node(index)
+        current = self.__get_node(index)
         if current is None:
             return "node is not exist"
         current_next = current.next
@@ -95,7 +95,7 @@ class LinkList:
     # 在当前元素之前插入一个元素
     def add_before(self, index, data):
         if index == 1:
-            current = self.get_node(index)
+            current = self.__get_node(index)
             self.head = Node(data)
             self.head.next = current
             return
@@ -128,7 +128,7 @@ class LinkList:
             self.head = self.head.next
             return data
         pre_node = self.get_pre_node(index)
-        current = self.get_node(index)
+        current = self.__get_node(index)
         if pre_node is None or current is None:
             print("data is not exist")
         pre_node.next = current.next
@@ -136,7 +136,7 @@ class LinkList:
 
     # 修改当前结点的值
     def update(self, index, data):
-        current = self.get_node(index)
+        current = self.__get_node(index)
         if current is None:
             return "current node is none"
         current.data = data
@@ -144,14 +144,14 @@ class LinkList:
     # 将新链表合并到当前链表
     def merge(self, data):
         size = self.get_length()
-        last_node = self.get_node(size)
+        last_node = self.__get_node(size)
         last_node.next = data.head
         return self
 
 # test
-y = (1,2,3,4)
-s = ["a", "b", "c", "d"]
-linkList = LinkList(y)
+# y = (1,2,3,4)
+# s = ["a", "b", "c", "d"]
+# linkList = LinkList(s)
 # linkList.init_link_list(["a", "b", "c", "d"])
 # second = LinkList()
 # second.init_link_list(["x", "y", "z"])
@@ -160,7 +160,7 @@ linkList = LinkList(y)
 # linkList.init_link_list([])
 # linkList.add_before(1,"x")
 # linkList.print_link()
-# print("item:", linkList.get_data(2))
+# print("item:", str(linkList.get_data(2)))
 # print("length:", linkList.get_length())
 # print("is empty", linkList.is_empty())
 # print(linkList.get_pre_node(3).data)
@@ -168,4 +168,4 @@ linkList = LinkList(y)
 # linkList.merge(second)
 
 
-linkList.print_link()
+# linkList.print_link()
