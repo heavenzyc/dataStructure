@@ -57,11 +57,11 @@ class MyStack:
     def get_length(self):
         if self.is_empty():
             return 0
-        current = self.head
+        current = self.top
         count = 0
-        while current.next is not None:
+        while current.pre is not None:
             count += 1
-            current = current.next
+            current = current.pre
         else:
             count += 1
         return count
@@ -84,6 +84,7 @@ myStack.push("z")
 
 myStack.print_queue()
 
+print("length:", myStack.get_length())
 print("top:" + myStack.pop())
 print("top:" + myStack.pop())
 print("top:" + myStack.pop())
