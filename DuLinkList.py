@@ -1,6 +1,7 @@
 # coding:utf-8
 from LinkList import LinkList
 
+
 class Node:
     def __init__(self, value):
         self.data = value
